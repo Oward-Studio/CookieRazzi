@@ -65,6 +65,14 @@
 | text | string |   |
 | callback | function |  |
 
+## Toggle popup
+
+In order to open the popup again, add the class ```show-cmp``` on a link, button, or other. When clicked, the popup will appear.
+
+```html
+<a href="#" class="show-cmp">Manage cookies</a>
+```
+
 ## Example : Gtag setup
 
 ```html

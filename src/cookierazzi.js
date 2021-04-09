@@ -153,7 +153,10 @@ class cookieRazzi {
     // Permet ré-afficher la popup simplement
     const popupBtn = document.querySelectorAll('.show-' + this.cname);
     popupBtn.forEach((el) => {
-      el.addEventListener('click',() => this.showPopup() );
+      el.addEventListener('click',(e) => {
+        e.preventDefault();
+        this.showPopup() 
+      });
     });
   }
 
