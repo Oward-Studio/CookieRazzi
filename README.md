@@ -3,9 +3,11 @@
 ## How to use
 
 ```html
+<link rel="stylesheet" href="../dist/cookierazzi.css">
+<script src="../dist/cookierazzi.js"></script>
 <script type="">
     var cmp = new cookieRazzi;
-    cmp.setSeed(2);
+    cmp.setSeed(2); // optional. Change the seed if consents are added or modified
     cmp.addConsent({
         'tracking' : {
             forced : false,
@@ -18,6 +20,8 @@
             }
         }
     })
-    cmp.init();
+    document.addEventListener("DOMContentLoaded", function() {
+        cmp.init();
+    });
 </script>
 ```
