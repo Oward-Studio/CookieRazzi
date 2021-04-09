@@ -12,11 +12,12 @@ class cookieRazzi {
     this.seed = 1; 
 
     this.text = {
+      title : "Nous respectons votre vie privée",
+      intro : "Nous utilisons des cookies pour améliorer et personnaliser votre expérience.",
+      desc : "Vous pouvez à tout moment revenir sur vos choix en utilisant le lien « paramétrer les cookies sur ce site » disponible dans notre politique de gestion des cookies.",
       accept : "Je valide",
       reject_all : "Non merci",
       accept_all : "J'accepte tout",
-      popup_title : "Gestion des cookies",
-      popup_intro : "Nous utilisons des cookies pour améliorer et personnaliser votre expérience",
     }
 
     this.consents = {
@@ -34,6 +35,7 @@ class cookieRazzi {
 
   addConsent(newConsent){
     Object.assign(this.consents,newConsent);
+    
   }
 
   // getDomain(){
@@ -68,11 +70,12 @@ class cookieRazzi {
   // public methods
   setSeed(seed){
     this.seed = seed;
-    return;
+    
   }
 
-  getSeed(){
-    return this.seed;
+  setText(newText){
+    this.text = Object.assign({}, this.text, newText);
+    
   }
 
   debug(){
@@ -102,9 +105,6 @@ class cookieRazzi {
       return JSON.parse(cookie[this.cname]);
     }
     return false;
-    // else{
-    //   return this.getData();
-    // }
   }
 
   setCookie(data){
@@ -163,11 +163,12 @@ class cookieRazzi {
     }else{
       this.popupDisplayed = new Date();
     }
+    
   }
 
   getData(){
     const data = {
-      'seed' : this.getSeed(),
+      'seed' : this.seed,
       'popupDisplayed' : this.popupDisplayed,
       'userConsents': this.getUserConsents()
     }
@@ -206,20 +207,21 @@ class cookieRazzi {
   }
 
   setPopup(){
+    if(document.getElementById("cmp_"+this.seed)){}
+
     let popup = this.popup;
     let consents = this.consents;
     let contentHtml = '';
 
     contentHtml = `
       <div class="cmp-box">
-      <p class="cmp-title">${this.text.popup_title}</p>
-      <p>${this.text.popup_intro}</p>`;
-    
+      <p class="cmp-title">${this.text.title}</p>`;
+      if(this.text.intro && this.text.intro != ''){contentHtml += `<p>${this.text.intro}</p>`;}
+      if(this.text.desc && this.text.desc != ''){contentHtml += `<p>${this.text.desc}</p>`;}
     contentHtml += `<div class="cmp-list">`;
     for (var key in consents) {
       if (!consents.hasOwnProperty(key)) continue;
       let consent = consents[key];
-   
       contentHtml += `<div class="cmp-consent"><div class="cmp-label">`;
       if(consent.icon){
         contentHtml += `<img src="${consent.icon}" width="16" height="16">`;
@@ -255,9 +257,6 @@ class cookieRazzi {
     popup.innerHTML = contentHtml;
     document.body.appendChild( popup );
 
-    /*=========================================\
-      $Les élements interactifs
-    \=========================================*/
     
     const consentDropdown = document.querySelectorAll('.cmp-arrow');
     consentDropdown.forEach(el => {
@@ -316,18 +315,18 @@ class cookieRazzi {
     if(!checkbox.disabled){
       checkbox.checked = !!value;
     }
+    
   }
 
   showPopup(){
     document.getElementById("cmp_"+this.seed).classList.remove('hidden');
+    
   }
-
+  
   hidePopup(){
     document.getElementById("cmp_"+this.seed).classList.add('hidden');
+    
   }
 }
 
-//   export default cookieRazzi;
-  
-// var cmp = new cookieRazzi;
-// cmp.init();
+// export default cookieRazzi;

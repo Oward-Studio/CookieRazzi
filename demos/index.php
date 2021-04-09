@@ -25,6 +25,9 @@
     <script type="">
         var cmp = new cookieRazzi;
         cmp.setSeed(12345);
+        cmp.setText({
+            title : 'test'
+        });
         cmp.addConsent({
             'tracking' : {
                 forced : false,

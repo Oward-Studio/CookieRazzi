@@ -72,7 +72,8 @@
     text-align: left;
     color:@title-color;
     & + p{ // intro
-        font-size: 1.15em;
+        font-size: 1.2em;
+        line-height: 1.3;
     }
 }
 
@@ -86,9 +87,11 @@
     margin:1em 0;
     line-height: 1.2;
     label{
-        display:block;
-        margin:1em 0;
-        font-size: 1.2em;
+        background:transparent!important;
+        border:0px!important;
+        display:block!important;
+        margin:1em 0!important;
+        font-size: 1.2em!important;
         cursor:pointer;
     }
     > div{
@@ -184,6 +187,9 @@
         font-weight: 600;
         color:@title-color;
         transition:.4s ease;
+        &:after,&:before{
+            content: none!important;
+        }
         &:last-child{
             border-right-width: 0;
         }
