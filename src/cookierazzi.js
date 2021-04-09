@@ -5,19 +5,17 @@ class cookieRazzi {
     this.cname = "cmp";
 
     // Si true, définit le cookies sur le domain de premier niveau
-    this.tld = true;
+    // this.tld = true;
 
     // Changer cette valeur lorsque la politique de confidentialité évolue
     // afin de réinitialiser l'affichage de la popup pour tous les utilisateurs
-    this.seed = 2105; 
+    this.seed = 1; 
 
-  
-    
     this.text = {
       accept : "Je valide",
       reject_all : "Non merci",
       accept_all : "J'accepte tout",
-      popup_title : "Cookie Policy",
+      popup_title : "Gestion des cookies",
       popup_intro : "Nous utilisons des cookies pour améliorer et personnaliser votre expérience",
     }
 
@@ -30,20 +28,12 @@ class cookieRazzi {
         text :  "Il s'agit de cookies nécessaires au fonctionnement de la plateforme et de notre entreprise. Ils vous permettent de vous connecter et de rester connecté au site et nous permettent également de mesurer anonymement le trafic du site et d'assurer sa sécurité. Sans cette technologie, nos services ne pourront pas fonctionner convenablement et/ou nous ne serons pas en mesure de vous proposer certaines fonctionnalités",
         callback: false
       },
-      // tracking : {
-      //   forced : false,
-      //   value : false,
-      //   icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
-      //   title : "Suivi statistique et performance ",
-      //   text :  "Ces cookies sont utilisés pour collecter des informations permettant d'analyser le trafic sur notre site et la manière dont les visiteurs utilisent notre site. Par exemple, ces cookies peuvent suivre des choses telles que le temps que vous passez sur le site Web ou les pages que vous visitez, ce qui nous aide à comprendre comment nous pouvons améliorer notre site Web pour vous. Les informations collectées via ces cookies de suivi et de performance n' identifient aucun visiteur en particulier.",
-      //   callback: false
-      // },
     }
 
   }
 
   addConsent(newConsent){
-    Object.assign(this.consents,newConsent)
+    Object.assign(this.consents,newConsent);
   }
 
   // getDomain(){
@@ -78,6 +68,7 @@ class cookieRazzi {
   // public methods
   setSeed(seed){
     this.seed = seed;
+    return;
   }
 
   getSeed(){
@@ -97,9 +88,9 @@ class cookieRazzi {
     console.log(debug);
   }
 
-  setTld(value){
-    this.tld = !!value;
-  }
+  // setTld(value){
+  //   this.tld = !!value;
+  // }
 
   getCookie() {
     let cookie = {};
