@@ -1,0 +1,17 @@
+.idea/*
+prepros-6.config
+.gitignore
+.env
+.babelrc
+
+CHANGELOG.md
+todo.md
+
+yarn.lock
+yarn-error.lock
+
+demos/
+src/
+
+
+
