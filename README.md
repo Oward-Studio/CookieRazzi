@@ -10,16 +10,15 @@
 
     cmp.setSeed(2); 
     cmp.setText({title : 'Cookie policy'});
-    cmp.addConsent({
-        'tracking' : {
-            forced : false,
-            value : true,
-            icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
-            title : "",
-            text :  "Description",
-            callback: function(consentValue){ 
-                //...
-            }
+    cmp.updateConsent('necessary', {title: "Lorem ipsum"});
+    cmp.addConsent( 'tracking' : {
+        disabled : false,
+        value : true,
+        icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
+        title : "",
+        text :  "Description",
+        callback: function(consentValue){
+            //...
         }
     });
 
@@ -106,7 +105,7 @@ In order to open the popup again, add the class ```show-cmp``` on a link, button
 <script>
     var cmp = new cookieRazzi;
     cmp.addConsent('tracking', {
-        forced : false,
+        disabled : false,
         value : true,
         icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
         title : "Tracking",
