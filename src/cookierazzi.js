@@ -22,20 +22,27 @@ class cookieRazzi {
 
     this.consents = {
       necessary : {
-        forced : true,
+        disabled : true,
         value : true,
         icon : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAJUWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDYgNzkuMTY0NzUzLCAyMDIxLzAyLzE1LTExOjUyOjEzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMS0wNC0wOFQxNjowNjoyMSswMjowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMS0wNC0wOFQxNjoxNzowNSswMjowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjEtMDQtMDhUMTY6MTc6MDUrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjkxZDgyOTMyLTYwZTYtNzA0Yi1hYzMyLTI5ODYyODhhYWRmMSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmExMjUxYWU4LTYwYWItYzM0Mi04MDA5LWU0Y2QxMTJlOGMyNCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjQ0ZjE2ODk2LTI3MzYtZDQ0NS1hNGQ0LWY3MTQxMmJmZWQxMyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NDRmMTY4OTYtMjczNi1kNDQ1LWE0ZDQtZjcxNDEyYmZlZDEzIiBzdEV2dDp3aGVuPSIyMDIxLTA0LTA4VDE2OjA2OjIxKzAyOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjg4YTg5MTQ0LTVjY2EtYjU0NS1hMDQ2LTQyNjZmY2FmOWNiOCIgc3RFdnQ6d2hlbj0iMjAyMS0wNC0wOFQxNjoxNyswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo4YzYwZjNiMS1kOTQwLTM2NGYtYmMxMi1lZTUxYzVjNjgwZTUiIHN0RXZ0OndoZW49IjIwMjEtMDQtMDhUMTY6MTc6MDUrMDI6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMi4zIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY29udmVydGVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJmcm9tIGFwcGxpY2F0aW9uL3ZuZC5hZG9iZS5waG90b3Nob3AgdG8gaW1hZ2UvcG5nIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJkZXJpdmVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJjb252ZXJ0ZWQgZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6OTFkODI5MzItNjBlNi03MDRiLWFjMzItMjk4NjI4OGFhZGYxIiBzdEV2dDp3aGVuPSIyMDIxLTA0LTA4VDE2OjE3OjA1KzAyOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhjNjBmM2IxLWQ5NDAtMzY0Zi1iYzEyLWVlNTFjNWM2ODBlNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NGYxNjg5Ni0yNzM2LWQ0NDUtYTRkNC1mNzE0MTJiZmVkMTMiIHN0UmVmOm9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0NGYxNjg5Ni0yNzM2LWQ0NDUtYTRkNC1mNzE0MTJiZmVkMTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6/fS8rAAAAvklEQVQ4y62TsQ3EIAxFKa5FV1y6SFezDAtkjKRKRoGWIWhPaVKRleJIH8myTHEixZPAfIz9AeO9Nw0icYDY0vGJJTbCYf5ja3XsoLEywR3YiZk4iUwkliAhdkKz1yRVsBILxh9iVModsWagXXkCh+yD2PQCPDZA66QHmZ38RtkFJMRqJZl7EGGS7Hli80lZv/cEg2uSZRfFg6K0czySIPS2oJloFRNty8RHrlE+pO+/D6n7KXd/Jo3AvnNo6S4AYiReJHwqjgAAAABJRU5ErkJggg==",
         title : "Strictement nécessaires",
-        text :  "Il s'agit de cookies nécessaires au fonctionnement de la plateforme et de notre entreprise. Ils vous permettent de vous connecter et de rester connecté au site et nous permettent également de mesurer anonymement le trafic du site et d'assurer sa sécurité. Sans cette technologie, nos services ne pourront pas fonctionner convenablement et/ou nous ne serons pas en mesure de vous proposer certaines fonctionnalités",
+        text :  "Il s'agit de cookies nécessaires au fonctionnement de la plateforme et de notre entreprise. Ils vous permettent de vous connecter et de rester connecté au site. Grâce à ces cookies, nous pouvons également mesurer anonymement le trafic du site et assurer sa sécurité. Sans cette technologie, nos services ne pourraient pas fonctionner convenablement et/ou nous ne serions pas en mesure de vous proposer certaines fonctionnalités.",
         callback: false
       },
     }
 
   }
 
-  addConsent(newConsent){
-    Object.assign(this.consents,newConsent);
-    
+  addConsent(consentKey,newConsent){
+    if(typeof(consentKey) === 'string' && typeof(newConsent) === 'object'){
+      Object.assign(this.consents, { [consentKey] : newConsent });
+    }
+  }
+
+  updateConsent(consentKey,newValues){
+    if(typeof(consentKey) === 'string' && typeof(newValues) === 'object'){
+      this.consents[consentKey] = {...this.consents[consentKey], ...newValues}
+    }
   }
 
   // getDomain(){
@@ -83,7 +90,7 @@ class cookieRazzi {
       "Consents": this.consents,
       "Cookie": this.getCookie(),
       "Seed": this.seed,
-      "TLD": this.tld,
+      // "TLD": this.tld,
       "Popup": this.popup,
       "Texts": this.text,
       // "DomainRef": this.getDomainRef(),
@@ -231,7 +238,7 @@ class cookieRazzi {
       }
       contentHtml += `
           <label>
-            <input type="checkbox" name="${ this.stringToSlug(key) }" id="${ this.stringToSlug(key) }" ${ consent.forced ? 'required disabled' : ''} ${consent.value ? 'checked' : ''}>
+            <input type="checkbox" name="${ this.stringToSlug(key) }" id="${ this.stringToSlug(key) }" ${ consent.disabled ? 'required disabled' : ''} ${consent.value ? 'checked' : ''}>
             <span>${consent.title}</span>
           </label>
           <div class="cmp-arrow"></div>
