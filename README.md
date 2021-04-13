@@ -26,6 +26,10 @@
         cmp.init();
     });
 </script>
+
+<script type="text/plain" cookie-consent="targeting">
+    console.log('Eval script text/plain if consent');
+</script>
 ```
 
 ## Customise sentences

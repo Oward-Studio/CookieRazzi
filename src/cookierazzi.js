@@ -1,5 +1,6 @@
 class cookieRazzi {
   constructor() {
+    this.initiated = false; 
     this.popup; 
     this.popupDisplayed = false;
     this.cname = "cmp";
@@ -34,14 +35,20 @@ class cookieRazzi {
   }
 
   addConsent(consentKey,newConsent){
-    if(typeof(consentKey) === 'string' && typeof(newConsent) === 'object'){
-      Object.assign(this.consents, { [consentKey] : newConsent });
+    if(this.initiated) return;
+
+    let consentKeyCleaned = consentKey.toLowerCase();
+    if(typeof(consentKeyCleaned) === 'string' && typeof(newConsent) === 'object'){
+      Object.assign(this.consents, { [consentKeyCleaned] : newConsent });
     }
   }
 
   updateConsent(consentKey,newValues){
-    if(typeof(consentKey) === 'string' && typeof(newValues) === 'object'){
-      this.consents[consentKey] = {...this.consents[consentKey], ...newValues}
+    if(this.initiated) return;
+
+    let consentKeyCleaned = consentKey.toLowerCase();
+    if(typeof(consentKeyCleaned) === 'string' && typeof(newValues) === 'object'){
+      this.consents[consentKeyCleaned] = {...this.consents[consentKeyCleaned], ...newValues}
     }
   }
 
@@ -125,7 +132,7 @@ class cookieRazzi {
   }
 
   init(forceShow){
-    
+    this.initiated = true;
     const cookie = this.getCookie();
 
     this.setPopup();
@@ -140,6 +147,9 @@ class cookieRazzi {
     
     // On lance les callbacks à l'init si le cookie existe
     for (var key in this.consents) {
+
+      this.evalScript(key);
+
       if(typeof(this.consents[key].callback) == 'function'){
         // Si il n'y a pas de cookie de définit, la valeur par default transmise au callback est false
         let consentValue = false;
@@ -167,13 +177,36 @@ class cookieRazzi {
     });
   }
 
+
+
   setPopupDisplayedTime(cookie){
     if(!!cookie.popupDisplayed){
       this.popupDisplayed = cookie.popupDisplayed;
     }else{
       this.popupDisplayed = new Date();
     }
-    
+  }
+
+  evalScript(consentKey){
+    const consentScripts = document.querySelectorAll('[cookie-consent="'+consentKey+'"]');
+
+    consentScripts.forEach(el => {
+      let data = (el.text || el.textContent || el.innerHTML || "" ),
+          s = document.getElementsByTagName("script")[0],
+          b = document.createElement("script");
+
+      b.type = "text/javascript";b.async = true;
+      try {
+          // doesn't work on ie...
+          b.appendChild(document.createTextNode(data));      
+      } catch(e) {
+          // IE has funky script nodes
+          b.text = data;
+      }
+      s.parentNode.insertBefore(b, s);
+
+      el.remove();
+    });
   }
 
   getData(){
@@ -201,13 +234,16 @@ class cookieRazzi {
     const form = document.getElementById("cmp_"+this.seed);
     var consentsChoosed = {};
     var field = [];
-    if (!!form && typeof form == 'object' && form.nodeName == "FORM") {
+    if (!!form && typeof form === 'object' && form.nodeName === "FORM") {
       var len = form.elements.length;
       for (var i=0; i<len; i++) {
         field = form.elements[i];
         if (field.type == 'checkbox' && field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
           consentsChoosed[encodeURIComponent(field.name)] = field.checked;
-          if(this.consents[field.name].callback != false){
+
+          this.evalScript(field.name);
+
+          if(this.consents[field.name].callback != undefined){
             this.consents[field.name].callback(field.checked);
           }
         }

@@ -24,7 +24,7 @@
     <script src="../dist/cookierazzi.js"></script>
     <script type="text/javascript">
         var cmp = new cookieRazzi;
-        cmp.setSeed('12345678');
+        cmp.setSeed('123456789');
         cmp.setText({
             title : 'test'
         });
@@ -33,12 +33,30 @@
                 disabled : false,
                 value : true,
                 icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
-                title : "Suivi statistique et performance",
+                title : "Tracking and Performance",
                 text :  "Ces cookies sont utilisés pour collecter anonymement des informations permettant d'analyser le trafic sur notre site et la manière dont les visiteurs naviguent. Par exemple, ces cookies peuvent déterminer le temps que vous passez sur le site ou les pages que vous visitez, ce qui nous aide à comprendre comment nous pouvons améliorer votre expérience. Les informations collectées via ces cookies de suivi et de performance n' identifient aucun visiteur en particulier.",
-                callback: function(consentValue){console.log('callback : '+consentValue);}
+                callback: function(consentValue){
+                    console.log('Consent tracking : '+consentValue);
+                }
             }
         );
-        cmp.init();
+        cmp.addConsent('targeting', {
+                disabled : false,
+                value : true,
+                icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
+                title : "Targeting and Advertising",
+                text :  "Nous utilisons des cookies et d'autres technologies de suivi pour améliorer votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé et des publicités ciblées, pour analyser le trafic de notre site et pour comprendre la provenance de nos visiteurs.",
+            }
+        );
+        document.addEventListener("DOMContentLoaded", function() {
+            cmp.init();
+        });
     </script>
+
+
+<script type="text/plain" cookie-consent="targeting">
+    console.log('Consent targeting : true. Active inline script text/plain to text/javascript');
+</script>
+
 </body>
 </html>
