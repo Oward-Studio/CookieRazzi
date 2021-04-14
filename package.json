@@ -5,6 +5,10 @@
 	"style": "dist/cookierazzi.css",
 	"main": "dist/cookierazzi.js",
 	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://gitlab.com/Eonalias/cookierazzi"
+	},
 	"scripts": {
 		"build:css": "lessc src/cookierazzi.less dist/cookierazzi.css -x",
 		"build:js": "babel --presets @babel/preset-typescript --extensions \".ts,.js\" src/cookierazzi.js --out-file dist/cookierazzi.js",
