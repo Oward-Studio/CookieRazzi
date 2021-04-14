@@ -4,6 +4,7 @@
 	"description": "Cookie Concent Management Plateform (CMP)",
 	"style": "dist/cookierazzi.css",
 	"main": "dist/cookierazzi.js",
+	"license": "MIT",
 	"scripts": {
 		"build:css": "lessc src/cookierazzi.less dist/cookierazzi.css -x",
 		"build:js": "babel --presets @babel/preset-typescript --extensions \".ts,.js\" src/cookierazzi.js --out-file dist/cookierazzi.js",
