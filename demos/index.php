@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../dist/cookierazzi.css">
 </head>
 <body>
+    <?php 
+    var_dump(json_decode($_COOKIE['cmp'])->userConsents->tracking);
+    ?>
     <div class="wrap" style="width: 960px; max-width:calc(100vw - 2em); margin:3rem auto; font-family: sans-serif; color:#666; font-size: 17px; line-height: 1.5;">
         <h1 class="show-cmp" style="text-align: center;">Lorem ipsum dolor</h1>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos aut, voluptates quia sequi quod ipsam dolor possimus velit, quo mollitia consequuntur fugiat sit. Fugiat placeat labore, maxime explicabo fuga adipisci voluptates est quos veritatis modi velit tempore distinctio saepe blanditiis accusantium, ut optio cupiditate magni laudantium officia dolore unde officiis!</p>

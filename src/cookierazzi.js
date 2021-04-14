@@ -1,3 +1,8 @@
+// IE11 Foreah babel transpile polyfill
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 class cookieRazzi {
   constructor() {
     this.initiated = false; 
@@ -205,7 +210,8 @@ class cookieRazzi {
       }
       s.parentNode.insertBefore(b, s);
 
-      el.remove();
+      // el.remove(); // IE11 not compatible
+      el.parentNode.removeChild(el);
     });
   }
 

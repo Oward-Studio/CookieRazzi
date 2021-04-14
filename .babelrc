@@ -3,7 +3,7 @@
         ["@babel/preset-env",
             {
                 "targets":  {
-                    "browsers":  [">0.25%",  "ie >= 11"]
+                    "browsers":  [">0.25%",  "Explorer 11"]
                 },
                 "corejs":  3,
                 "useBuiltIns":  "entry"
@@ -14,6 +14,7 @@
     ],
     "plugins":  [
         "@babel/proposal-class-properties",
-        "@babel/proposal-object-rest-spread"
+        "@babel/proposal-object-rest-spread",
+        "@babel/plugin-transform-object-assign"
     ]
 }
