@@ -1,5 +1,7 @@
 # CookieRazzi : A Cookie Concent Management Plateform (CMP)
 
+![Support IE11](https://shields.io/badge/Browser%20support-Modern%20%26%20IE11-green)
+
 ## How to use
 
 ```html
