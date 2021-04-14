@@ -1,14 +1,24 @@
 {
 	"name": "cookierazzi",
 	"version": "1.0.7",
-	"description": "Cookie Concent Management Plateform (CMP)",
+	"description": "Cookie Consent Management Plateform (CMP)",
 	"style": "dist/cookierazzi.css",
 	"main": "dist/cookierazzi.js",
-	"license": "ISC",
+	"keywords": [
+        "Cookierazzy",
+        "RGPD",
+        "GDPR",
+        "consent manager",
+        "CMP",
+        "Cookie consent management plateform",
+        "Cookie Management Platform"
+    ],
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://gitlab.com/Eonalias/cookierazzi"
 	},
+	"repository": "npm/npm",
 	"scripts": {
 		"build:css": "lessc src/cookierazzi.less dist/cookierazzi.css -x",
 		"build:js": "babel --presets @babel/preset-typescript --extensions \".ts,.js\" src/cookierazzi.js --out-file dist/cookierazzi.js",
