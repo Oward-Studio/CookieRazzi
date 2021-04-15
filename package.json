@@ -1,6 +1,6 @@
 {
 	"name": "cookierazzi",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "Cookie Consent Management Plateform (CMP)",
 	"style": "dist/cookierazzi.css",
 	"main": "dist/cookierazzi.js",
