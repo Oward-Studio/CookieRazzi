@@ -1,6 +1,6 @@
 # CookieRazzi : A Cookie Concent Management Plateform (CMP)
 
-![CookieRazzi](https://gitlab.com/Eonalias/cookierazzi/-/blob/main/src/cover.png)
+![CookieRazzi](https://gitlab.com/Eonalias/cookierazzi/-/raw/main/src/cover.png)
 
 ![Support IE11](https://shields.io/badge/Browser%20support-Modern%20%26%20IE11-green) ![npm](https://img.shields.io/npm/dw/cookierazzi) ![NPM](https://img.shields.io/npm/l/cookierazzi)
 
