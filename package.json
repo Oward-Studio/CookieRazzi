@@ -1,9 +1,20 @@
 {
 	"name": "cookierazzi",
-	"version": "1.0.6",
-	"description": "Cookie Concent Management Plateform (CMP)",
+	"version": "1.0.8",
+	"description": "Cookie Consent Management Plateform (CMP)",
 	"style": "dist/cookierazzi.css",
 	"main": "dist/cookierazzi.js",
+	"keywords": [
+		"Cookierazzy",
+		"RGPD",
+		"GDPR",
+		"consent manager",
+		"CMP",
+		"Cookie consent management plateform",
+		"Cookie Management Platform"
+	],
+	"license": "MIT",
+	"repository": "npm/npm",
 	"scripts": {
 		"build:css": "lessc src/cookierazzi.less dist/cookierazzi.css -x",
 		"build:js": "babel --presets @babel/preset-typescript --extensions \".ts,.js\" src/cookierazzi.js --out-file dist/cookierazzi.js",
@@ -12,7 +23,6 @@
 		"watch": "concurrently \"npm:watch:*\""
 	},
 	"author": "Geoffrey From HumanToComputer",
-	"license": "ISC",
 	"engines": {
 		"node": ">=10.14.0"
 	},
