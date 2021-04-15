@@ -1,5 +1,7 @@
 # CookieRazzi : A Cookie Concent Management Plateform (CMP)
 
+![CookieRazzi](src/cover.jpg)
+
 ![Support IE11](https://shields.io/badge/Browser%20support-Modern%20%26%20IE11-green) ![npm](https://img.shields.io/npm/dw/cookierazzi) ![NPM](https://img.shields.io/npm/l/cookierazzi)
 
 ## How to use
@@ -7,7 +9,7 @@
 ```html
 <link rel="stylesheet" href="cookierazzi.css">
 <script src="cookierazzi.js"></script>
-<script type="">
+<script type="text/javascript">
     var cmp = new cookieRazzi;
 
     cmp.setSeed(2); 
