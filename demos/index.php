@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php 
-    var_dump(json_decode($_COOKIE['cmp'])->userConsents->tracking);
+    // var_dump(json_decode($_COOKIE['cmp'])->userConsents->tracking);
     ?>
     <div class="wrap" style="width: 960px; max-width:calc(100vw - 2em); margin:3rem auto; font-family: sans-serif; color:#666; font-size: 17px; line-height: 1.5;">
         <h1 class="show-cmp" style="text-align: center;">Lorem ipsum dolor</h1>
@@ -27,7 +27,7 @@
     <script src="../dist/cookierazzi.js"></script>
     <script type="text/javascript">
         var cmp = new cookieRazzi;
-        cmp.setSeed('123456789');
+        cmp.setSeed('1');
         cmp.setText({
             title : 'test'
         });

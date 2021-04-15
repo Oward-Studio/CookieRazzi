@@ -11,7 +11,6 @@
     box-shadow: rgb(0 0 0 / 15%) 0px 4px 24px, rgb(0 0 0 / 5%) 0px 2px 6px;
     border-radius: 8px;
     overflow: hidden;
-    overflow: hidden;
     width: 400px;
     margin: 0!important;
     padding:0!important;
@@ -44,7 +43,10 @@
             opacity:1;
         }
     }
-
+    &.hidden{
+        z-index:-1;
+        pointer-events: none;
+    }
     &:before{
         content:"";
         position: absolute;
