@@ -27,14 +27,14 @@
     <script src="../dist/cookierazzi.js"></script>
     <script type="text/javascript">
         var cmp = new cookieRazzi;
-        cmp.setSeed('1');
+        cmp.setSeed('2');
         cmp.setText({
             title : 'test'
         });
         cmp.updateConsent('necessary', {disabled: true, value: true});
         cmp.addConsent('tracking', {
                 disabled : false,
-                value : true,
+                value : false,
                 icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
                 title : "Tracking and Performance",
                 text :  "Ces cookies sont utilisés pour collecter anonymement des informations permettant d'analyser le trafic sur notre site et la manière dont les visiteurs naviguent. Par exemple, ces cookies peuvent déterminer le temps que vous passez sur le site ou les pages que vous visitez, ce qui nous aide à comprendre comment nous pouvons améliorer votre expérience. Les informations collectées via ces cookies de suivi et de performance n' identifient aucun visiteur en particulier.",

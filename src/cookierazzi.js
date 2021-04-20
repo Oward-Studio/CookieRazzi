@@ -177,7 +177,7 @@ class cookieRazzi {
     popupBtn.forEach((el) => {
       el.addEventListener('click',(e) => {
         e.preventDefault();
-        this.showPopup() 
+        this.showPopup();
       });
     });
   }
@@ -301,10 +301,10 @@ class cookieRazzi {
 
     contentHtml += `<div class="cmp-btns">`;
     contentHtml += `<button class="button" id="cmp_reject_all">${this.text.reject_all}</button>`;
-    contentHtml += `<button class="button" id="cmp_choose">${this.text.accept}</button>`;
     if(consentToChooseCount > 1){
-      contentHtml += `<button class="button" id="cmp_accept_all">${this.text.accept_all}</button>`;
+      contentHtml += `<button class="button" id="cmp_choose">${this.text.accept}</button>`;
     }
+    contentHtml += `<button class="button" id="cmp_accept_all">${this.text.accept_all}</button>`;
     contentHtml += `</div>`;
 
     popup = document.createElement( "form" );
