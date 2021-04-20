@@ -43,14 +43,14 @@
                 }
             }
         );
-        cmp.addConsent('targeting', {
-                disabled : false,
-                value : true,
-                icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
-                title : "Targeting and Advertising",
-                text :  "Nous utilisons des cookies et d'autres technologies de suivi pour améliorer votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé et des publicités ciblées, pour analyser le trafic de notre site et pour comprendre la provenance de nos visiteurs.",
-            }
-        );
+        // cmp.addConsent('targeting', {
+        //         disabled : false,
+        //         value : true,
+        //         icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
+        //         title : "Targeting and Advertising",
+        //         text :  "Nous utilisons des cookies et d'autres technologies de suivi pour améliorer votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé et des publicités ciblées, pour analyser le trafic de notre site et pour comprendre la provenance de nos visiteurs.",
+        //     }
+        // );
         document.addEventListener("DOMContentLoaded", function() {
             cmp.init();
         });

@@ -31,7 +31,7 @@
     });
 </script>
 
-<script type="text/plain" cookie-consent="targeting">
+<script type="text/plain" cookie-consent="tracking">
     console.log('Eval script text/plain if consent');
 </script>
 ```

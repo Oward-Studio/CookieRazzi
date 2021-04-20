@@ -264,6 +264,7 @@ class cookieRazzi {
     let popup = this.popup;
     let consents = this.consents;
     let contentHtml = '';
+    let consentToChooseCount = 0;
 
     contentHtml = `
       <div class="cmp-box">
@@ -271,6 +272,7 @@ class cookieRazzi {
       if(this.text.intro && this.text.intro != ''){contentHtml += `<p>${this.text.intro}</p>`;}
       if(this.text.desc && this.text.desc != ''){contentHtml += `<p>${this.text.desc}</p>`;}
     contentHtml += `<div class="cmp-list">`;
+
     for (var key in consents) {
       if (!consents.hasOwnProperty(key)) continue;
       let consent = consents[key];
@@ -289,18 +291,21 @@ class cookieRazzi {
           <p>${consent.text}</p>
         </div>
       </div>`;
+
+      if(!consent.disabled) consentToChooseCount++;
     }
     contentHtml += `</div>`; // .cmp-list
 
     contentHtml += `</div>`; // .cmp-box
 
 
-    contentHtml += `<div class="cmp-btns">
-      <button class="button" id="cmp_reject_all">${this.text.reject_all}</button>
-      <button class="button" id="cmp_choose">${this.text.accept}</button>
-      <button class="button" id="cmp_accept_all">${this.text.accept_all}</button>
-      </div>
-    `;
+    contentHtml += `<div class="cmp-btns">`;
+    contentHtml += `<button class="button" id="cmp_reject_all">${this.text.reject_all}</button>`;
+    if(consentToChooseCount > 1){
+      contentHtml += `<button class="button" id="cmp_choose">${this.text.accept}</button>`;
+    }
+    contentHtml += `<button class="button" id="cmp_accept_all">${this.text.accept_all}</button>`;
+    contentHtml += `</div>`;
 
     popup = document.createElement( "form" );
     popup.id = "cmp_"+this.seed;
@@ -318,48 +323,54 @@ class cookieRazzi {
     });
     
     const btnRejectAll = document.getElementById("cmp_reject_all");
-    btnRejectAll.addEventListener('click',(e) => {
-      e.preventDefault();
-      
-      const consents = this.consents;
-      for (var key in consents) {
-        if (!consents.hasOwnProperty(key)) continue;
-        const consent = consents[key];
-        this.setCheckbox(this.stringToSlug(key),false)
-      }
-      // On reset la date d'affichage de la popup
-      this.popupDisplayed = new Date();
-      // On créé le cookie avec les nouvelles valeur
-      this.setCookie(this.getData());
-      this.hidePopup();
-    });
+    if(!!btnRejectAll){
+      btnRejectAll.addEventListener('click',(e) => {
+        e.preventDefault();
+        
+        const consents = this.consents;
+        for (var key in consents) {
+          if (!consents.hasOwnProperty(key)) continue;
+          const consent = consents[key];
+          this.setCheckbox(this.stringToSlug(key),false)
+        }
+        // On reset la date d'affichage de la popup
+        this.popupDisplayed = new Date();
+        // On créé le cookie avec les nouvelles valeur
+        this.setCookie(this.getData());
+        this.hidePopup();
+      });
+    }
 
     let btnChoose = document.getElementById("cmp_choose");
-    btnChoose.addEventListener('click',(e) => {
-      e.preventDefault();
-      // On reset la date d'affichage de la popup
-      this.popupDisplayed = new Date();
-      // On créé le cookie avec les nouvelles valeur
-      this.setCookie(this.getData());
-      this.hidePopup();
-    });
+    if(!!btnChoose){
+      btnChoose.addEventListener('click',(e) => {
+        e.preventDefault();
+        // On reset la date d'affichage de la popup
+        this.popupDisplayed = new Date();
+        // On créé le cookie avec les nouvelles valeur
+        this.setCookie(this.getData());
+        this.hidePopup();
+      });
+    }
 
     let btnAcceptAll = document.getElementById("cmp_accept_all");
-    btnAcceptAll.addEventListener('click',(e) => {
-      e.preventDefault();
-
-      let consents = this.consents;
-      for (var key in consents) {
-        if (!consents.hasOwnProperty(key)) continue;
-        let consent = consents[key];
-        this.setCheckbox(this.stringToSlug(key),true)
-      }
-      // On reset la date d'affichage de la popup
-      this.popupDisplayed = new Date();
-      // On créé le cookie avec les nouvelles valeur
-      this.setCookie(this.getData());
-      this.hidePopup();
-    });
+    if(!!btnAcceptAll){
+      btnAcceptAll.addEventListener('click',(e) => {
+        e.preventDefault();
+  
+        let consents = this.consents;
+        for (var key in consents) {
+          if (!consents.hasOwnProperty(key)) continue;
+          let consent = consents[key];
+          this.setCheckbox(this.stringToSlug(key),true)
+        }
+        // On reset la date d'affichage de la popup
+        this.popupDisplayed = new Date();
+        // On créé le cookie avec les nouvelles valeur
+        this.setCookie(this.getData());
+        this.hidePopup();
+      });
+    }
   }
 
   setCheckbox(id,value){
