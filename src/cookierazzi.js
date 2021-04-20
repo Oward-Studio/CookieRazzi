@@ -138,16 +138,16 @@ class cookieRazzi {
 
   init(forceShow){
     this.initiated = true;
-    const cookie = this.getCookie();
-
-    this.setPopup();
-    
+    let cookie = this.getCookie();
+	
     // Si le seed est présent dans la cookie et qu'il est identique à l'instance
-    if(!!cookie.seed && cookie.seed == this.seed){
-      this.setUserConsents();
+    this.setPopup();
+	  if(!!cookie && !!cookie.seed && cookie.seed == this.seed){
+	    this.setUserConsents();
     }else{
-      // Sinon on vide le cookie
+	    // Sinon on vide le cookie
       this.setCookie('');
+	  cookie = false;
     }
     
     // On lance les callbacks à l'init si le cookie existe
@@ -166,7 +166,8 @@ class cookieRazzi {
     }
 
     // Si la popup n'a jamais été affichée ou qu'on la force
-    if(!cookie.popupDisplayed || forceShow){
+    if(!cookie || !cookie.popupDisplayed || forceShow){
+    	console.log("show popup");
       this.showPopup();
     }
 

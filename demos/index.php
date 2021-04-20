@@ -27,7 +27,7 @@
     <script src="../dist/cookierazzi.js"></script>
     <script type="text/javascript">
         var cmp = new cookieRazzi;
-        cmp.setSeed('3');
+        cmp.setSeed('$7');
         cmp.setText({
             title : 'Cookies Consent Manager'
         });
