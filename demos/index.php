@@ -27,9 +27,9 @@
     <script src="../dist/cookierazzi.js"></script>
     <script type="text/javascript">
         var cmp = new cookieRazzi;
-        cmp.setSeed('2');
+        cmp.setSeed('3');
         cmp.setText({
-            title : 'test'
+            title : 'Cookies Consent Manager'
         });
         cmp.updateConsent('necessary', {disabled: true, value: true});
         cmp.addConsent('tracking', {
