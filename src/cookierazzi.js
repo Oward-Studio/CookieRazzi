@@ -4,6 +4,12 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 }
 
 class cookieRazzi {
+
+/**
+ * cookieRazzi instance constructor
+ * @constructor
+ */
+	
   constructor() {
     this.initiated = false; 
     this.popup; 
@@ -393,4 +399,17 @@ class cookieRazzi {
   }
 }
 
-// export default cookieRazzi;
+/**
+ * Export function that supports AMD, CommonJS and Plain Browser.
+ */
+((root, factory) => {
+	if (typeof exports !== 'undefined') {
+		module.exports = factory;
+	} else if (typeof define === 'function' && define.amd) {
+		define([], function() {
+			return factory;
+		});
+	} else {
+		root.cookieRazzi = factory;
+	}
+})(this, cookieRazzi);
