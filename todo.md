@@ -1,3 +1,5 @@
 - Voir : https://github.com/nolimits4web/swiper
-- Ajout apres "main" et "style : "module": "dist/cookierazzi.esm.js",
+- Ajout dans le package.json apres "main" et "style : "module": "dist/cookierazzi.esm.js",
+- Ajouter une date de consentement sur chaque consent si cookie.
+- Ajouter resetCookie()
 
