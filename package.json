@@ -4,6 +4,7 @@
 	"description": "Cookie Consent Management Plateform (CMP)",
 	"style": "dist/cookierazzi.css",
 	"main": "dist/cookierazzi.js",
+	"module": "dist/cookierazzi.js",
 	"keywords": [
 		"Cookierazzy",
 		"RGPD",
@@ -16,11 +17,11 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://gitlab.com/Eonalias/cookierazzi"
+		"url": "https://gitlab.com/Eonalias/cookierazzi.git"
 	},
 	"scripts": {
 		"build:css": "lessc src/cookierazzi.less dist/cookierazzi.css -x",
-		"build:js": "babel --presets @babel/preset-typescript --extensions \".ts,.js\" src/cookierazzi.js --out-file dist/cookierazzi.js",
+		"build:js": "babel --presets @babel/preset-typescript --extensions \".ts,.js\" src/cookierazzi.js --out-file dist/cookierazzi.js --no-comments",
 		"watch:js": "nodemon --watch src/cookierazzi.js --exec npm run build:js",
 		"watch:css": "nodemon --watch src/cookierazzi.less --exec npm run build:css",
 		"watch": "concurrently \"npm:watch:*\""

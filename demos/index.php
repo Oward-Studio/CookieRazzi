@@ -7,6 +7,14 @@
     <title>CookieRazzi Démo</title>
     <link rel="stylesheet" href="../dist/cookierazzi.css">
 </head>
+<style>
+	:root{
+		--cmp-sun-color: #ccf1ae;
+		--cmp-btn-bg-emphasis: #21884f;
+		--cmp-btn-color-emphasis: #ccf1ae;
+		--cmp-radius: 8px;
+	}
+</style>
 <body>
     <?php 
     // var_dump(json_decode($_COOKIE['cmp'])->userConsents->tracking);
@@ -27,7 +35,8 @@
     <script src="../dist/cookierazzi.js"></script>
     <script type="text/javascript">
         var cmp = new cookieRazzi;
-        cmp.setSeed('$7');
+        cmp.setSeed('1');
+        cmp.setExpire(4);
         cmp.setText({
             title : 'Cookies Consent Manager'
         });
@@ -43,14 +52,14 @@
                 }
             }
         );
-        // cmp.addConsent('targeting', {
-        //         disabled : false,
-        //         value : true,
-        //         icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
-        //         title : "Targeting and Advertising",
-        //         text :  "Nous utilisons des cookies et d'autres technologies de suivi pour améliorer votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé et des publicités ciblées, pour analyser le trafic de notre site et pour comprendre la provenance de nos visiteurs.",
-        //     }
-        // );
+        cmp.addConsent('targeting', {
+                disabled : false,
+                value : false,
+                icon : "https://www.google.com/s2/favicons?domain=analytics.google.com",
+                title : "Targeting and Advertising",
+                text :  "Nous utilisons des cookies et d'autres technologies de suivi pour améliorer votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé et des publicités ciblées, pour analyser le trafic de notre site et pour comprendre la provenance de nos visiteurs.",
+            }
+        );
         document.addEventListener("DOMContentLoaded", function() {
             cmp.init();
         });

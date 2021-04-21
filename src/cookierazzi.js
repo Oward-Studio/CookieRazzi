@@ -1,4 +1,4 @@
-// IE11 Foreah babel transpile polyfill
+// IE11 Foreach babel transpile polyfill
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
@@ -15,6 +15,7 @@ class cookieRazzi {
     this.popup; 
     this.popupDisplayed = false;
     this.cname = "cmp";
+    this.expire = 1;
 
     // Si true, définit le cookies sur le domain de premier niveau
     // this.tld = true;
@@ -27,8 +28,8 @@ class cookieRazzi {
       title : "Nous respectons votre vie privée",
       intro : "Nous utilisons des cookies pour améliorer et personnaliser votre expérience.",
       desc : "Vous pouvez à tout moment revenir sur vos choix en utilisant le lien « paramétrer les cookies sur ce site » disponible dans notre politique de gestion des cookies.",
-      accept : "Je valide",
-      reject_all : "Non merci",
+      reject_all : "Tout refuser",
+      accept : "Valider la sélection",
       accept_all : "J'accepte tout",
     }
 
@@ -92,11 +93,15 @@ class cookieRazzi {
     return str;
   }
 
-  // public methods
   setSeed(seed){
     this.seed = seed;
-    
   }
+	
+	setExpire(val){
+    if(Number.isInteger(val)){
+      this.expire = val;
+    }
+	}
 
   setText(newText){
     this.text = Object.assign({}, this.text, newText);
@@ -135,9 +140,9 @@ class cookieRazzi {
   setCookie(data){
     let expires = new Date();
     if(data == ''){
-      expires.setMonth( expires.getMonth() - 1 );
+      expires.setMonth( expires.getMonth() - this.expire );
     }else{
-      expires.setMonth( expires.getMonth() + 1 );
+      expires.setMonth( expires.getMonth() + this.expire );
     }
     document.cookie = this.cname+"="+data+"; path=/; expires="+expires.toGMTString()+"; Secure";
   }
@@ -173,7 +178,6 @@ class cookieRazzi {
 
     // Si la popup n'a jamais été affichée ou qu'on la force
     if(!cookie || !cookie.popupDisplayed || forceShow){
-    	console.log("show popup");
       this.showPopup();
     }
 
@@ -325,7 +329,8 @@ class cookieRazzi {
     const consentDropdown = document.querySelectorAll('.cmp-arrow');
     consentDropdown.forEach(el => {
       el.addEventListener('click', () => {
-        el.closest('.cmp-consent').classList.toggle('active');
+        // el.closest('.cmp-consent').classList.toggle('active'); // IE11 ne support pas Element.prototype.closest
+        el.parentNode.parentNode.classList.toggle('active');
       });
     });
     

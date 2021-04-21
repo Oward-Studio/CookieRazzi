@@ -4,6 +4,13 @@
 
 ![Support IE11](https://shields.io/badge/Browser%20support-Modern%20%26%20IE11-green) ![npm](https://img.shields.io/npm/dw/cookierazzi) ![NPM](https://img.shields.io/npm/l/cookierazzi)
 
+## Features
+
+- Written in vanilla javascript, no dependencies needed
+- Clean UI with some customisable style (CSS custom properties)
+- Change the markup of RGPD-sensitive JavaScript script tags to run only if the user has given consent.
+- The expiration time of the cookie storing user consent preferences is configurable. By default it is one month.
+
 ## How to use
 
 ```html
@@ -12,7 +19,8 @@
 <script type="text/javascript">
     var cmp = new cookieRazzi;
 
-    cmp.setSeed(2); 
+    cmp.setExpire(2);
+    cmp.setSeed(2);
     cmp.setText({title : 'Cookie policy'});
     cmp.updateConsent('necessary', {title: "Lorem ipsum"});
     cmp.addConsent( 'tracking' : {
@@ -45,8 +53,8 @@
 | title | "Nous respectons votre vie privée" |
 | intro | "Nous utilisons des cookies pour améliorer et personnaliser votre expérience." |
 | desc | "Vous pouvez à tout moment revenir sur vos choix en utilisant le lien « paramétrer les cookies sur ce site » disponible dans notre politique de confidentialité" |
-| accept | "Je valide" |
-| reject_all | "Non merci" |
+| reject_all | "Tout refuser" |
+| accept | "Valider la sélection" |
 | accept_all | "J'accepte tout" |
 
 ## Methods
@@ -58,6 +66,7 @@
 | showPopup() | | Show CMP popup |
 | hidePopup() | | Hide CMP Popup |
 | setSeed() | string | Change the seed if consents are added or modified to reset the cookie |
+| setExpire() | int | Set the expiration time for the cookie that retains user consent preferences. By default it is one month. |
 | setText() | object | Customise popup sentences |
 | addConsent() | (string,object) | Add consent with a named key and object with its value |
 | updateConsent() | (string,object) | Update consent with the named key of the consent to be updated and an object containing the new values |
@@ -79,6 +88,19 @@ In order to open the popup again, add the class ```show-cmp``` on a link, button
 
 ```html
 <a href="#" class="show-cmp">Manage cookies</a>
+```
+
+## Customise
+
+the CMP can be customised using a few CSS variables. Here are the default values:
+
+```css
+:root{
+	--cmp-sun-color: #fff6a2;
+	--cmp-btn-bg-hover: #fff6a2;
+	--cmp-btn-color-hover: #333333;
+	--cmp-radius: 8px;
+}
 ```
 
 ## Example : Gtag setup

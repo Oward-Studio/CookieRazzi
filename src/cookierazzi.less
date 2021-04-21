@@ -1,20 +1,25 @@
 @brand-grey: darken(#eee,5);
-@brand-primary: #fff6a2;
-@brand-secondary: #cce2ee;
-@brand-secondary-dark: #29386b;
-@title-color: #333;
+@brand-warning: #fff8b5;
+@heading-color: #333333;
 @default-color: #666;
+
+:root{
+	--cmp-sun-color: @brand-warning;
+	--cmp-btn-bg-hover: @brand-warning;
+	--cmp-btn-color-hover: @heading-color;
+	--cmp-radius: 8px;
+}
 
 .cmp{
     position: fixed;
     background: #fff;
-    box-shadow: rgb(0 0 0 / 15%) 0px 4px 24px, rgb(0 0 0 / 5%) 0px 2px 6px;
+    box-shadow: rgb(0 0 0 / 15%) 0 4px 24px, rgb(0 0 0 / 5%) 0 2px 6px;
     border-radius: 8px;
+    border-radius: var(--cmp-radius);
     overflow: hidden;
     width: 400px;
     margin: 0!important;
     padding:0!important;
-    max-width: 100%;
     box-sizing: border-box;
     font-size: 13px;
     left: 2em;
@@ -27,12 +32,12 @@
     transform-origin: 0 100%;
     opacity:0;
     transform: translateX(-20px);
-    max-width: calc(100vw - 4em);
+    max-width: calc(100vw - 2em);
     @media screen and (max-width: 400px){
         font-size: 12px;
         left: 1em;
         bottom: 1em;
-        max-width: calc(100vw - 4em);
+        max-width: calc(100vw - 2em);
     }
     &:not(.hidden){
         opacity:1;
@@ -47,12 +52,14 @@
         z-index:-1;
         pointer-events: none;
     }
+	// Sun
     &:before{
         content:"";
         position: absolute;
         top: 0;
         left:0;
-        background: @brand-primary;
+        background: @brand-warning; // IE11 Fallback
+        background: var(--cmp-sun-color);
         border-radius: 50%;
         width: 2em;
         height: 2em;
@@ -72,7 +79,7 @@
     font-size: 1.5em;
     font-weight: 600;
     text-align: left;
-    color:@title-color;
+    color:@heading-color;
     & + p{ // intro
         font-size: 1.2em;
         line-height: 1.3;
@@ -169,7 +176,7 @@
         opacity:.4;
     }
     &:active{
-        background-color: @brand-primary;
+        background-color: @brand-warning;
     }
 }
 
@@ -188,7 +195,7 @@
         border-top:1px solid @brand-grey;
         cursor: pointer;
         font-weight: 600;
-        color:@title-color;
+        color:@heading-color;
         transition:.4s ease;
         &:after,&:before{
             content: none!important;
@@ -198,13 +205,9 @@
         }
         &:hover,&:focus{
             outline: none;
-            color: inherit;
-            background: @brand-primary;
+            background: @brand-warning; // IE11 Fallback
+	        color: var(--cmp-btn-color-hover);
+            background: var(--cmp-btn-bg-hover);
         }
     }
-}
-
-#cmp_accept_all:not(:hover){
-    color: @brand-secondary-dark;
-    background-color: @brand-secondary;
 }

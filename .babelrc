@@ -6,10 +6,10 @@
                     "browsers":  [">0.25%",  "Explorer 11"]
                 },
                 "corejs":  3,
-                "useBuiltIns":  "entry"
+                "useBuiltIns":  "entry",
+				"modules": false
             }
         ],
-        "@babel/preset-typescript",
         "minify"
     ],
     "plugins":  [
