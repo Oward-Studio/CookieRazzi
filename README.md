@@ -1,3 +1,5 @@
+> ## ⚠️⚠️⚠️ This project is no longer maintained. ⚠️⚠️⚠️ 
+
 # CookieRazzi : A Cookie Concent Management Plateform (CMP)
 
 ![CookieRazzi](https://gitlab.com/Eonalias/cookierazzi/-/raw/main/src/cover.png)
